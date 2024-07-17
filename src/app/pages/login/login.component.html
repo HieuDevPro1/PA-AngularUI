@@ -1,0 +1,147 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="row w-100 m-0">
+      <div
+        class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg"
+      >
+        <div class="card col-lg-4 mx-auto">
+          <div *ngIf="displayName">
+            <span class="back-admin">
+              <i
+                (click)="navigateMain()"
+                class="mdi mdi-arrow-left-bold-hexagon-outline"
+              ></i>
+            </span>
+          </div> 
+          <div class="card-body px-5 py-4">
+            <h3 class="card-title text-left mb-4">Login</h3>
+            <form class="user" [formGroup]="loginFrm" (ngSubmit)="getUser()">
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control form-control-user"
+                  id="exampleInputEmail"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter Email Address..."
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    loginFrm.get('email')?.invalid &&
+                    (loginFrm.get('email')?.dirty ||
+                      loginFrm.get('email')?.touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="loginFrm.get('email')?.hasError('required')"
+                  >
+                    Email is required.
+                  </small>
+                  <small
+                    class="text-danger"
+                    *ngIf="loginFrm.get('email')?.hasError('email')"
+                  >
+                    Invalid email format.
+                  </small>
+                </div>
+              </div>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control form-control-user"
+                  id="inputPassword"
+                  placeholder="Password"
+                  formControlName="password"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i
+                      class="mdi mdi-eye-off-outline"
+                      (click)="togglePasswordVisibility()"
+                      [ngClass]="{
+                        'mdi-eye-outline': !passwordVisible,
+                        'mdi-eye-off-outline': passwordVisible
+                      }"
+                      title="{{
+                        passwordVisible ? 'Hide password' : 'Show password'
+                      }}"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+              <div
+                *ngIf="
+                  loginFrm.get('password')?.invalid &&
+                  (loginFrm.get('password')?.dirty ||
+                    loginFrm.get('password')?.touched)
+                "
+              >
+                <small
+                  class="text-danger"
+                  *ngIf="loginFrm.get('password')?.hasError('required')"
+                  >Password is required.</small
+                >
+                <small
+                  class="text-danger"
+                  *ngIf="loginFrm.get('password')?.hasError('minlength')"
+                  >Password must be at least 6 characters.</small
+                >
+              </div>
+
+              <div
+                class="form-group d-flex align-items-center justify-content-between"
+              >
+                <!-- <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" [checked]="rememberMe" (change)="onRememberMeChange($event)"> Remember me
+                </label>
+              </div> -->
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="rememberMe"
+                    [checked]="rememberMe"
+                    (change)="onRememberMeChange($event)"
+                  />
+                  <label class="form-check-label" for="rememberMe">
+                    Remember me</label
+                  >
+                </div>
+
+                <a href="#" class="forgot-pass">Forgot password</a>
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  [disabled]="loginFrm.invalid"
+                  class="btn btn-outline-danger btn-block enter-btn"
+                >
+                  Login
+                </button>
+              </div>
+              <!-- <button class="btn btn-facebook mr-2 col">
+                  <i class="mdi mdi-facebook"></i> Facebook </button> -->
+
+              <div class="social-icons">
+           
+                <button (click)="googleLogin()" type="button" class="btn btn-social-icon btn-outline-google"><i class="mdi mdi-google"></i></button>
+                <button (click)="facebookLogin()" type="button" class="btn btn-social-icon btn-outline-facebook"><i class="mdi mdi-facebook"></i></button>
+
+                <button (click)="twitterLogin()" type="button" class="btn btn-social-icon btn-outline-twitter"><i class="mdi mdi-twitter"></i></button>
+                <button (click)="githubLogin()" type="button" class="btn btn-social-icon btn-outline-secondary"><i class="mdi mdi-github-circle"></i></button>
+
+              </div>
+
+              <!-- <p class="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p> -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- row ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

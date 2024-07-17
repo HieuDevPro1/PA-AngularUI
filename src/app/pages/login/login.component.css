@@ -1,0 +1,42 @@
+.social-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons .btn {
+    margin-right: 10px;
+}
+
+.social-icons i {
+    font-size: 25px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.btn-social-icon {
+    font-size: 35px;
+    border-radius: 50px;
+}
+
+
+/* .social-icons .mdi-google {
+    color: #db4437;
+}
+
+.social-icons .mdi-facebook-box {
+    color: #4267b2;
+}
+
+.social-icons .mdi-twitter {
+    color: #1da1f2;
+}
+
+.social-icons .mdi-github-circle {
+    color: #333;
+} */
+
+.back-admin {
+    margin: 10px;
+    color: yellowgreen;
+    font-size: 50px;
+    cursor: pointer;
+}

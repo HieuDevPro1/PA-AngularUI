@@ -1,0 +1,70 @@
+.pagination {
+    margin-top: 20px;
+    justify-content: right;
+}
+
+.svg-container {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.svg-icon {
+    cursor: pointer;
+}
+
+.input-group-text {
+    background-color: #2A3038;
+    border: none;
+}
+
+.icon-search {
+    color: #79CDCD;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #212529;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.form-check-labell {
+    display: block;
+    padding: 0.25rem 2rem;
+    /* font-weight: normal; */
+    cursor: pointer;
+    color: #6c7293;
+    border-radius: 0.25rem; 
+}
+
+.form-check-labell:hover {
+    background-color: #495057;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    /* padding: 0.5rem 1.5rem; */
+}
+
+.form-check-radio {
+    position: absolute;
+    margin-top: 0rem;
+    margin-left: -1rem;
+}

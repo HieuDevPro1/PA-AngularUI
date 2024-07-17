@@ -1,0 +1,118 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ action === "add" ? "Add Product" : "Update Product" }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- <form [formGroup]="insertFrm" (ngSubmit)="onSubmit()"> -->
+        <form [formGroup]="insertFrm">
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="category" class="col-form-label">Category:</label>
+            <select class="form-control" id="category" formControlName="category" (change)="onCategoryChange()">
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+              </option>
+            </select>
+          </div>
+          
+          <div class="form-group" *ngIf="showNewCategoryInput">
+            <label for="newCategory" class="col-form-label">New Category:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="newCategory"
+              formControlName="newCategory"
+              placeholder="Enter new category"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inventory" class="col-form-label">Inventory:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inventory"
+              formControlName="inventory"
+            />
+          </div>
+          <div class="form-group">
+            <label for="price" class="col-form-label">Price:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="price"
+              formControlName="price"
+            />
+          </div>
+          <div class="form-group">
+            <label for="discount" class="col-form-label">Discount (%):</label>
+            <input
+              type="text"
+              class="form-control"
+              id="discount"
+              formControlName="discount"
+            />
+          </div>
+          <div class="form-group">
+            <label for="sold" class="col-form-label">Sold:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="sold"
+              formControlName="sold"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description" class="col-form-label">Description:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              formControlName="description"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          [disabled]="!insertFrm.valid"
+          (click)="onSubmit()"
+        >
+          {{ this.action === "add" ? "Add" : "Update" }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

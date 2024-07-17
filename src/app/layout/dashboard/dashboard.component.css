@@ -1,0 +1,26 @@
+.pagination {
+    margin-top: 20px;
+    justify-content: right;
+}
+
+.delete-icon {
+    color: inherit; /* Đảm bảo icon mặc định không có màu nền */
+    font-size: 24px; /* Kích thước icon */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển động */
+    cursor: pointer; /* Con trỏ khi rê chuột vào */
+    margin: 10px;
+}
+
+.delete-icon:hover {
+    color: red; /* Màu đỏ khi hover */
+    transform: scale(1.2); /* Phóng to icon khi hover */
+}
+
+.btn-delete {
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    color: #FF6A6A; /* Màu đỏ khi hover */
+    transform: scale(1.2); /* Phóng to icon khi hover */
+}

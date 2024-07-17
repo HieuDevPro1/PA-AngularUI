@@ -1,0 +1,200 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="row w-100 m-0">
+      <div
+        class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg"
+      >
+        <div class="card col-lg-5 mx-auto">
+          <span class="back-admin">
+            <i
+              (click)="navigateMain()"
+              class="mdi mdi-arrow-left-bold-hexagon-outline"
+            ></i>
+          </span>
+          <div class="card-body px-5 py-3">
+            <h3 class="card-title text-left mb-5">Create Account</h3>
+            <form
+              class="user"
+              [formGroup]="registerFrm"
+              (ngSubmit)="createUser()"
+            >
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-user"
+                  placeholder="User Name"
+                  formControlName="userName"
+                />
+                <div
+                  *ngIf="
+                    registerFrm.get('userName')?.invalid &&
+                    (registerFrm.get('userName')?.dirty ||
+                      registerFrm.get('userName')?.touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="registerFrm.get('userName')?.hasError('required')"
+                    >User name is required.</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control form-control-user"
+                  placeholder="Email Address"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    registerFrm.get('email')?.invalid &&
+                    (registerFrm.get('email')?.dirty ||
+                      registerFrm.get('email')?.touched)
+                  "
+                >
+                  <small
+                    class="text-danger"
+                    *ngIf="registerFrm.get('email')?.hasError('required')"
+                    >Email is required.
+                  </small>
+                  <small
+                    class="text-danger"
+                    *ngIf="registerFrm.get('email')?.hasError('email')"
+                    >Invalid email format.
+                  </small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control form-control-user"
+                      id="inputPassword"
+                      placeholder="Password"
+                      formControlName="password"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i
+                          class="mdi mdi-eye-off-outline"
+                          (click)="togglePasswordVisibility()"
+                          [ngClass]="{
+                            'mdi-eye-outline': !passwordVisible,
+                            'mdi-eye-off-outline': passwordVisible
+                          }"
+                          title="{{
+                            passwordVisible ? 'Hide password' : 'Show password'
+                          }}"
+                        >
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      registerFrm.get('password')?.invalid &&
+                      (registerFrm.get('password')?.dirty ||
+                        registerFrm.get('password')?.touched)
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="registerFrm.get('password')?.hasError('required')"
+                      >Password is required.</small
+                    >
+                    <small
+                      class="text-danger"
+                      *ngIf="registerFrm.get('password')?.hasError('minlength')"
+                      >Password must be at least 6 characters.</small
+                    >
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control form-control-user"
+                      id="inputConfirmPassword"
+                      placeholder="Repeat Password"
+                      formControlName="confirmPassword"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i
+                          class="mdi mdi-eye-off-outline"
+                          (click)="toggleConfirmPasswordVisibility()"
+                          [ngClass]="{
+                            'mdi-eye-outline': !confirmPasswordVisible,
+                            'mdi-eye-off-outline': confirmPasswordVisible
+                          }"
+                          title="{{
+                            confirmPasswordVisible
+                              ? 'Hide confirm password'
+                              : 'Show confirm password'
+                          }}"
+                        >
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      registerFrm.hasError('mismatch') &&
+                      (registerFrm.get('confirmPassword')?.dirty ||
+                        registerFrm.get('confirmPassword')?.touched)
+                    "
+                  >
+                    <small class="text-danger"
+                      >Confirmation password does not match</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- <hr />
+              <a href="index.html" class="btn btn-google btn-user btn-block">
+                <i class="fab fa-google fa-fw"></i> Register with Google
+              </a> -->
+              <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+              </a> -->
+
+              <div
+                class="form-group d-flex align-items-center justify-content-between"
+              >
+                <!-- <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" /> Remember
+                    me
+                  </label>
+                </div> -->
+                <!-- <a href="#" class="forgot-pass">Forgot password</a> -->
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  [disabled]="registerFrm.invalid"
+                  class="btn btn-success btn-block enter-btn"
+                >
+                  Create
+                </button>
+              </div>
+              <!-- <div class="d-flex">
+                  <button class="btn btn-facebook col mr-2">
+                    <i class="mdi mdi-facebook"></i> Facebook </button>
+                  <button class="btn btn-google col">
+                    <i class="mdi mdi-google-plus"></i> Google plus </button>
+                </div> -->
+              <!-- <p class="sign-up text-center">Already have an Account?<a href="#"> Sign Up</a></p>
+                <p class="terms">By creating an account you are accepting our<a href="#"> Terms & Conditions</a></p> -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- row ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
