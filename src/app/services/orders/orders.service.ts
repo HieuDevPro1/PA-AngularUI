@@ -8,7 +8,7 @@ import { Order } from '../../models/order';
 })
 export class OrdersService {
 
-  private apiUrl = 'http://localhost:6789/api';
+  private apiUrl = 'https://pa-nodejs.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
