@@ -2,6 +2,17 @@
     cursor: pointer;
 }
 
+.logo-cursor {
+  cursor: pointer;
+}
+
+.img-col {
+  width: 100%; 
+  max-width: 200px; 
+  height: auto; /* Giữ tỷ lệ khung hình của hình ảnh */
+}
+
+
 /* .nav-item.active .nav-link {
     background-color: black;
     color: #007bff; 

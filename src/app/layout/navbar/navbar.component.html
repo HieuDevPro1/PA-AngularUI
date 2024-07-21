@@ -39,9 +39,10 @@
   <div
     class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center"
   >
-    <a class="navbar-brand brand-logo-mini" href="index.html"
-      ><img src="assets/images/logo-mini.svg" alt="logo"
-    /></a>
+  <a class="brand-logo logo-cursor" (click)="navigateDashboard()">
+    <img src="../../../assets/images/productboard.svg" alt="logo" class="img-col"/>
+  </a>
+  
   </div>
   <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
     <button
@@ -119,6 +120,14 @@
           <i class="mdi mdi-view-grid"></i>
         </a>
       </li>
+      <li class="nav-item dropdown border-left">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+                type="button"
+                (click)="toggleSidebar()">
+          <span class="mdi mdi-format-line-spacing text-white"></span>
+        </button>
+      </li>
+       
       <li class="nav-item dropdown border-left">
         <a
           class="nav-link count-indicator dropdown-toggle"
@@ -248,22 +257,23 @@
         <a
           class="nav-link"
           id="profileDropdown"
-          href="#"
           data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
         >
-          <div class="navbar-profile">
+          <div class="navbar-profile d-flex align-items-center">
             <img
-              style="width: 40px"
               class="img-profile rounded-circle"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukleU1059SFH-flP36qRWECpm9pQfQ7f50Q&s"
+              alt="Profile"
             />
             <p
               *ngIf="displayName"
-              class="mb-0 d-none d-sm-block navbar-profile-name"
+              class="mb-0 navbar-profile-name ml-2"
             >
               {{ displayName }}
             </p>
-            <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+            <i class="mdi mdi-menu-down d-none d-md-block ml-2 icon-cursor"></i>
           </div>
         </a>
         <div
@@ -272,7 +282,7 @@
         >
           <h6 class="p-3 mb-0">Profile</h6>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item preview-item">
+          <a class="dropdown-item preview-item" href="#">
             <div class="preview-thumbnail">
               <div class="preview-icon bg-dark rounded-circle">
                 <i class="mdi mdi-settings text-success"></i>
@@ -287,6 +297,7 @@
             data-toggle="modal"
             data-target="#logoutModal"
             class="dropdown-item preview-item"
+            href="#"
           >
             <div class="preview-thumbnail">
               <div class="preview-icon bg-dark rounded-circle">
@@ -298,16 +309,43 @@
             </div>
           </a>
           <div class="dropdown-divider"></div>
-          <p class="p-3 mb-0 text-center">Advanced settings</p>
+          <p class="p-3 mb-0 text-center d-md-none">Advanced settings</p>
         </div>
       </li>
+      
+      <style>
+        .icon-cursor {
+          cursor: pointer;
+        }
+
+        .navbar-profile img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+      
+        .navbar-profile-name {
+          font-size: 0.5rem;
+          display: inline-block;
+          cursor: pointer;
+        }
+      
+        @media (min-width: 768px) {
+          .navbar-profile img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+          }
+      
+          .navbar-profile-name {
+            font-size: 1rem;
+            cursor: pointer;
+          }
+        }
+      </style>
+      
     </ul>
-    <button
-      class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-      type="button"
-      data-toggle="offcanvas"
-    >
-      <span class="mdi mdi-format-line-spacing"></span>
-    </button>
+    
   </div>
 </nav>
+

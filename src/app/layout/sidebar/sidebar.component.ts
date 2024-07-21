@@ -19,6 +19,8 @@ export class SidebarComponent {
   fauthService: AuthsService = inject(AuthsService);
   currentTab: string = '';
 
+  sidebarOpened: boolean = false;
+
   constructor() {
     this.userService.getCurrentUser().then((user) => {
       this.displayName =
@@ -49,4 +51,31 @@ export class SidebarComponent {
     this.currentTab = 'chart';
     this.router.navigate(['/admin/chart'])
   }
+
+  toggleSidebar() {
+    this.sidebarOpened = !this.sidebarOpened;
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (sidebar) {
+      sidebar.classList.toggle('active', this.sidebarOpened);
+    }
+    if (overlay) {
+      overlay.classList.toggle('active', this.sidebarOpened);
+    }
+  }
+
+  closeSidebar() {
+    this.sidebarOpened = false;
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (sidebar) {
+      sidebar.classList.remove('active');
+    }
+    if (overlay) {
+      overlay.classList.remove('active');
+    }
+  }
+  
 }

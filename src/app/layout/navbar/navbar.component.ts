@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
 
   fauthService: AuthsService = inject(AuthsService);
 
+  sidebarOpened: boolean = false;
+
   constructor() {
     this.userService.getCurrentUser().then((user) => {
       this.displayName =
@@ -36,5 +38,17 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  navigateDashboard() {
+    this.router.navigate(['/admin']);
+  }
+
   ngOnInit() {}
+
+  toggleSidebar() {
+    this.sidebarOpened = !this.sidebarOpened;
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+      sidebar.classList.toggle('active');
+    }
+  }
 }

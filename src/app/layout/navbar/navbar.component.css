@@ -1,0 +1,14 @@
+.img-col {
+    margin-left: 80px;
+    max-width: 110px; /*kích thước tối đa*/
+    height: auto; /* Giữ tỷ lệ khung hình của hình ảnh */
+}
+
+.logo-cursor {
+    cursor: pointer;
+}
+
+.nav-items {
+    font-size: smaller;
+}
+

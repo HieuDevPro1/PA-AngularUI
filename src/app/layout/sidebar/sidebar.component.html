@@ -1,15 +1,11 @@
 <!-- partial:partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-  <div
-    class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top"
-  >
-    <a class="sidebar-brand brand-logo" href="index.html"
-      ><img src="../../../assets/images/logo.svg" alt="logo"
-    /></a>
-    <a class="sidebar-brand brand-logo-mini" href="index.html"
-      ><img src="../../../assets/images/logo-mini.svg" alt="logo"
-    /></a>
+  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <a class="brand-logo logo-cursor" (click)="navigateDashboard()">
+      <img src="../../../assets/images/productboard.svg" alt="logo" class="img-col"/>
+    </a>
   </div>
+  
   <ul class="nav">
     <li class="nav-item profile">
       <div class="profile-desc">
@@ -77,7 +73,7 @@
       <span class="nav-link">Navigation</span>
     </li>
     <li class="nav-item menu-items" [ngClass]="{'active': currentTab === 'dashboard'}">
-      <a (click)="navigateDashboard()" class="nav-link">
+      <a (click)="navigateDashboard(); closeSidebar()" class="nav-link">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
         </span>
@@ -127,7 +123,7 @@
       </a>
     </li>
     <li class="nav-item menu-items" [ngClass]="{'active': currentTab === 'table'}">
-      <a (click)="navigateTable()" class="nav-link">
+      <a (click)="navigateTable(); closeSidebar()" class="nav-link">
         <span class="menu-icon">
           <i class="mdi mdi-table-large"></i>
         </span>
@@ -135,7 +131,7 @@
       </a>
     </li>
     <li class="nav-item menu-items" [ngClass]="{'active': currentTab === 'chart'}">
-      <a class="nav-link" (click)="navigateChart()">
+      <a class="nav-link" (click)="navigateChart(); closeSidebar()">
         <span class="menu-icon">
           <i class="mdi mdi-chart-bar"></i>
         </span>
@@ -170,10 +166,10 @@
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li> -->
           <li class="nav-item">
-            <a (click)="navigateLogin()" class="nav-link"> Login </a>
+            <a (click)="navigateLogin(); closeSidebar()" class="nav-link"> Login </a>
           </li>
           <li class="nav-item">
-            <a (click)="navigateCreateAccount()" class="nav-link"> Create Account </a>
+            <a (click)="navigateCreateAccount(); closeSidebar()" class="nav-link"> Create Account </a>
           </li>
         </ul>
       </div>
