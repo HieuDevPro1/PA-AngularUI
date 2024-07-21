@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navigateDashboard() {
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin/dashboard']);
   }
 
   ngOnInit() {}

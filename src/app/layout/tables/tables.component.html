@@ -10,11 +10,17 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Products DataTables</h4>
-      <form class="nav-link w-25">
+      <style>
+        .nav-link .input-group {
+          width: 200px;
+        } 
+      </style>
+      
+      <form class="nav-link">
         <div class="input-group">
-          <span class="input-group-text"
-            ><i class="mdi mdi-yeast icon-search"></i
-          ></span>
+          <span class="input-group-text">
+            <i class="mdi mdi-yeast icon-search"></i>
+          </span>
           <input
             type="text"
             (input)="search($event)"
@@ -23,6 +29,7 @@
           />
         </div>
       </form>
+      
       <div class="svg-container">
         <svg
           data-toggle="modal"
